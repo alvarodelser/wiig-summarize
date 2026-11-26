@@ -1,0 +1,8 @@
+# Opt-in debugging port: publishes wiig-summarize on 127.0.0.1:9907 of the host.
+#   docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
+# Any shell on the host can reach it while it's up (incident T13). Take it
+# down again with a plain `docker compose up -d`.
+services:
+  wiig-summarize:
+    ports:
+      - "127.0.0.1:${SUMMARIZE_HOST_PORT:-9907}:8000"

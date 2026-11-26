@@ -1,0 +1,37 @@
+# wiig-summarize: profile-driven summarization (each profile = a prompt plus
+# the JSON schema of its answer), shared on wiig-net. Holds no model: the
+# writing goes to ollama_high. No GPU.
+#
+# Consumers reach it as http://wiig-summarize:8000 from wiig-net.
+# No published port by default: a 127.0.0.1 port is reachable from any shell on
+# the host, students' Jupyter terminals included (incident T13). To publish one
+# for debugging, add the override:
+#   docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
+# Fixed project name: Compose would otherwise take it from the folder, and
+# every container label and named volume derives from it.
+name: wiig-summarize
+
+services:
+  wiig-summarize:
+    build: .
+    image: wiig/summarize:1.0
+    container_name: wiig-summarize
+    restart: unless-stopped
+    environment:
+      OLLAMA_HOST: http://ollama_high:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:31b}
+      OLLAMA_TIMEOUT: "${OLLAMA_TIMEOUT:-120}"
+      OLLAMA_THINK: "${OLLAMA_THINK:-false}"
+      SUMMARIZE_MAX_INPUT_WORDS: "${SUMMARIZE_MAX_INPUT_WORDS:-400}"
+      NLP_LOG_LEVEL: INFO
+    mem_limit: ${SUMMARIZE_MEM_LIMIT:-2g}
+    labels:
+      org.wiig.role: shared-ai
+      org.wiig.owner: ${WIIG_OWNER:-alvarodelser}
+    networks:
+      default: {}
+      wiig-net: {}
+
+networks:
+  wiig-net:
+    external: true
