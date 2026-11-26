@@ -33,9 +33,12 @@ new one is a prompt file in `nlp/summarizer/prompts/` plus an entry in
 
 ## Deploying
 
-Part of the shared AI services on `wiig-net`. The network, the naming rules
-and the server runbook are in
-[wiig-ops](https://github.com/oeg-metacognition/wiig-ops).
+Part of the shared AI services on `wiig-net`. Create the network once on the
+server, as an internal network, if it doesn't exist:
+
+```sh
+docker network create --internal --label org.wiig.role=shared-ai wiig-net
+```
 
 ```sh
 cp .env.example .env    # adjust
