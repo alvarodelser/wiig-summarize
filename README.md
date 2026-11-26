@@ -35,7 +35,7 @@ new one is a prompt file in `nlp/summarizer/prompts/` plus an entry in
 
 Part of the shared AI services on `wiig-net`. The network, the naming rules
 and the server runbook are in
-[wiig-common-services](https://github.com/oeg-metacognition/wiig-common-services).
+[wiig-ops](https://github.com/oeg-metacognition/wiig-ops).
 
 ```sh
 cp .env.example .env    # adjust
