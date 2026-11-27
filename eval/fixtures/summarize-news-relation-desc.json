@@ -1,0 +1,151 @@
+[
+  {
+    "id": "rel-desc-001",
+    "description": "Person DIRIGE Organisation — 2 evidence items, no extractive trigger",
+    "input": {
+      "profile": "relation_desc",
+      "fields": {
+        "head": "Ana Ruiz Morales",
+        "tail": "Área de Movilidad Sostenible",
+        "type": "DIRIGE",
+        "attributes": "cargo: Concejala de Movilidad Sostenible",
+        "evidence": [
+          "Ana Ruiz Morales fue nombrada titular del Área de Movilidad Sostenible en la constitución del nuevo gobierno municipal.",
+          "La concejala Ana Ruiz Morales presentó el presupuesto del Área de Movilidad Sostenible para el ejercicio siguiente, que asciende a 28 millones de euros."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": false,
+        "description_non_empty": true,
+        "contains": ["Ana Ruiz", "Movilidad"]
+      },
+      "reference": "Ana Ruiz Morales es la concejala titular del Área de Movilidad Sostenible desde la constitución del nuevo gobierno municipal, ejercicio en el que gestiona un presupuesto de 28 millones de euros."
+    }
+  },
+  {
+    "id": "rel-desc-002",
+    "description": "Organisation FINANCIA Project — numeric attributes, 2 evidence items",
+    "input": {
+      "profile": "relation_desc",
+      "fields": {
+        "head": "Ayuntamiento de Málaga",
+        "tail": "Carril Bici del Litoral",
+        "type": "FINANCIA",
+        "subtype": "inversión municipal",
+        "attributes": "importe: 3.200.000 €; convocatoria: PMUS 2024",
+        "evidence": [
+          "El Pleno del Ayuntamiento de Málaga aprobó una partida de 3,2 millones de euros para financiar la construcción del Carril Bici del Litoral en el marco del Plan de Movilidad Urbana Sostenible 2024.",
+          "La financiación del Ayuntamiento de Málaga para el Carril Bici del Litoral cubre la adquisición de terrenos, el diseño, la ejecución de obra y la señalización horizontal y vertical en todo el recorrido."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": false,
+        "description_non_empty": true,
+        "contains": ["3,2 millones"]
+      },
+      "reference": "El Ayuntamiento de Málaga financia la construcción del Carril Bici del Litoral con 3,2 millones de euros, aprobados en Pleno en el marco del PMUS 2024, cubriendo diseño, ejecución de obra y señalización."
+    }
+  },
+  {
+    "id": "rel-desc-003",
+    "description": "Organisation PARTICIPA_EN advisory body — 2 evidence items, no extractive trigger",
+    "input": {
+      "profile": "relation_desc",
+      "fields": {
+        "head": "Plataforma Ciclistas Urbanos Madrid",
+        "tail": "Consejo Municipal de la Movilidad",
+        "type": "PARTICIPA_EN",
+        "attributes": "modalidad: representación ciudadana; desde: 2023",
+        "evidence": [
+          "La Plataforma Ciclistas Urbanos Madrid obtuvo un puesto permanente en el Consejo Municipal de la Movilidad como representante del sector ciclista urbano.",
+          "En la última sesión del Consejo Municipal de la Movilidad, la Plataforma Ciclistas Urbanos Madrid solicitó la revisión del reglamento de patinetes eléctricos y la creación de un registro municipal de incidentes ciclistas."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": false,
+        "description_non_empty": true,
+        "contains": ["Consejo"]
+      },
+      "reference": "La Plataforma Ciclistas Urbanos Madrid participa en el Consejo Municipal de la Movilidad en calidad de representante del sector ciclista, desde donde ha impulsado la revisión del reglamento de patinetes y la creación de un registro de incidentes."
+    }
+  },
+  {
+    "id": "rel-desc-004",
+    "description": "Person IMPULSA Policy — 11 evidence items, triggers extractive reduction (>400 words)",
+    "input": {
+      "profile": "relation_desc",
+      "fields": {
+        "head": "Carlos Díez Moreno",
+        "tail": "Plan Director de la Bicicleta 2023-2027",
+        "type": "IMPULSA",
+        "attributes": "vigencia: 2023-2027; presupuesto total: 48.000.000 €; km nuevos carril bici: 85",
+        "evidence": [
+          "Carlos Díez Moreno anunció la elaboración de un nuevo Plan Director de la Bicicleta con horizonte 2027, dotado con 48 millones de euros procedentes de fondos municipales y cofinanciación europea.",
+          "El concejal Carlos Díez Moreno presidió la primera reunión del comité técnico del Plan Director de la Bicicleta, en la que participaron urbanistas, representantes ciclistas, comerciantes y técnicos de movilidad.",
+          "Carlos Díez Moreno encargó a la consultora Ineco la redacción del documento base del Plan Director de la Bicicleta, que incluirá un diagnóstico de la red existente y propuestas de actuación prioritarias.",
+          "En declaraciones a Europa Press, Carlos Díez Moreno explicó que el Plan Director de la Bicicleta incluirá la construcción de 85 nuevos kilómetros de carril bici segregado antes de 2027 en los distritos con menor cobertura.",
+          "El concejal presentó los resultados de la consulta ciudadana previa al Plan Director de la Bicicleta, que recibió más de 12.000 respuestas y en la que la demanda más señalada fue la mejora de la seguridad en los cruces.",
+          "Carlos Díez Moreno defendió en el Congreso de la Movilidad celebrado en Bilbao el enfoque participativo del Plan Director de la Bicicleta como modelo de planificación urbana orientada al ciudadano.",
+          "El concejal Carlos Díez Moreno compareció ante la Junta de Gobierno para solicitar la aprobación del contrato de redacción del Plan Director de la Bicicleta, valorado en 380.000 euros.",
+          "Carlos Díez Moreno confirmó que el Plan Director de la Bicicleta incluirá un capítulo específico sobre intermodalidad bici-metro y la habilitación de espacios para bicicletas en los vagones de Cercanías en horas punta.",
+          "El concejal señaló que el Plan Director de la Bicicleta se alinea con los objetivos del PMUS y contribuirá a reducir las emisiones de CO₂ del transporte urbano en un 15% para 2030.",
+          "Carlos Díez Moreno participó en la jornada de presentación pública del borrador del Plan Director de la Bicicleta celebrada en el Centro Cultural Conde Duque, con asistencia de más de 400 ciudadanos.",
+          "El concejal anunció que el Plan Director de la Bicicleta será sometido a evaluación ambiental estratégica antes de su aprobación definitiva prevista para el primer trimestre del siguiente ejercicio.",
+          "Carlos Díez Moreno detalló que el Plan Director de la Bicicleta destinará una partida específica de cuatro millones de euros a la conexión ciclista entre los polígonos industriales del extrarradio y las estaciones de transporte público, una demanda histórica de los sindicatos.",
+          "El concejal precisó que el Plan Director de la Bicicleta contempla la creación de una oficina municipal de la bicicleta encargada de coordinar las obras, atender las reclamaciones ciudadanas y publicar un informe anual de seguimiento de los indicadores del plan."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": true,
+        "description_non_empty": true,
+        "contains": ["Plan Director", "bicicleta"]
+      },
+      "reference": "Carlos Díez Moreno ha impulsado el Plan Director de la Bicicleta 2023-2027, dotado con 48 millones de euros, que contempla 85 km nuevos de carril bici segregado, intermodalidad bici-metro y una reducción del 15% en emisiones de CO₂ para 2030, con un proceso participativo que recibió más de 12.000 respuestas ciudadanas."
+    }
+  },
+  {
+    "id": "rel-desc-005",
+    "description": "Organisation COLABORA_CON Organisation — 12 evidence items, triggers extractive reduction (>400 words)",
+    "input": {
+      "profile": "relation_desc",
+      "fields": {
+        "head": "Federación Española de Ciclistas Urbanos",
+        "tail": "Dirección General de Tráfico",
+        "type": "COLABORA_CON",
+        "attributes": "acuerdo: convenio marco 2023; renovación: anual",
+        "evidence": [
+          "La Federación Española de Ciclistas Urbanos y la Dirección General de Tráfico firmaron un convenio marco de colaboración para el intercambio de datos de accidentalidad ciclista y el diseño conjunto de campañas de concienciación.",
+          "Representantes de la Federación Española de Ciclistas Urbanos participaron en el grupo de trabajo de la DGT para actualizar el capítulo del Manual de Señalización Vial referente a las vías ciclistas.",
+          "La Federación y la DGT publicaron conjuntamente el informe anual sobre siniestralidad ciclista, con datos desagregados por tipo de vía, franja horaria, grupo de edad y tipo de colisión registrada.",
+          "La Federación Española de Ciclistas Urbanos colaboró con la Dirección General de Tráfico en el diseño de la campaña 'Espacio Seguro', dirigida a conductores de vehículos privados para reforzar el cumplimiento de la distancia mínima de adelantamiento a ciclistas.",
+          "La DGT y la Federación organizaron conjuntamente una jornada técnica sobre infracciones frecuentes en entornos ciclistas urbanos, dirigida a inspectores de tráfico de 14 jefaturas provinciales.",
+          "La Federación Española de Ciclistas Urbanos aportó a la DGT más de 3.000 informes de incidentes recogidos por ciclistas urbanos a través de su aplicación móvil, con geolocalización de puntos negros para la siniestralidad.",
+          "La Dirección General de Tráfico incluyó en su plan estratégico 2024-2028 una acción específica de colaboración con entidades ciclistas para la revisión de la normativa sobre vías de coexistencia en zonas residenciales.",
+          "La Federación Española de Ciclistas Urbanos y la DGT coordinaron la distribución de 200.000 reflectantes y luces traseras entre ciclistas urbanos en el marco de la campaña de seguridad vial de otoño.",
+          "Representantes de la Federación participaron junto a técnicos de la DGT en la redacción de un protocolo de actuación policial ante accidentes con ciclistas implicados, orientado a mejorar la recogida de datos estadísticos.",
+          "La Federación Española de Ciclistas Urbanos valoró positivamente el nuevo módulo formativo sobre movilidad ciclista incluido en el examen teórico del permiso de conducir, diseñado con asesoramiento de la propia Federación.",
+          "La Dirección General de Tráfico y la Federación acordaron crear un observatorio permanente de la movilidad ciclista, con reuniones trimestrales y publicación de datos abiertos accesibles para investigadores y administraciones locales.",
+          "La Federación elogió la decisión de la DGT de obligar a los fabricantes a incluir sensores de apertura de puertas en nuevos vehículos, reivindicación que la organización había trasladado a la Dirección en múltiples ocasiones.",
+          "La Dirección General de Tráfico invitó a la Federación Española de Ciclistas Urbanos a integrarse en la mesa permanente de seguridad vial junto a fabricantes, aseguradoras y asociaciones de víctimas para consensuar la próxima estrategia estatal de movilidad segura.",
+          "La Federación remitió a la DGT un dictamen técnico sobre la señalización de las vías ciclistas en rotondas y glorietas, proponiendo un modelo unificado que la Dirección se comprometió a evaluar para su posible incorporación al catálogo oficial de señales."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": true,
+        "description_non_empty": true,
+        "contains": ["Federación", "DGT"]
+      },
+      "reference": "La Federación Española de Ciclistas Urbanos y la Dirección General de Tráfico mantienen un convenio marco de colaboración que incluye intercambio de datos de accidentalidad, diseño conjunto de campañas de seguridad vial, participación en grupos de trabajo normativos y la creación de un observatorio permanente de la movilidad ciclista."
+    }
+  }
+]

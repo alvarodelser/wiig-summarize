@@ -1,0 +1,187 @@
+[
+  {
+    "id": "sum-001",
+    "description": "Article profile — short text, no extractive reduction",
+    "input": {
+      "profile": "article",
+      "fields": {
+        "title": "El Ayuntamiento de Madrid aprueba el presupuesto para 2026 - Diario de Madrid",
+        "text": "El pleno del Ayuntamiento de Madrid ha aprobado esta tarde los presupuestos municipales para el ejercicio 2026 con un total de 5.400 millones de euros, lo que supone un incremento del 3,2% respecto al año anterior. La votación se ha saldado con 29 votos a favor del equipo de gobierno y 18 en contra de la oposición. El alcalde José Luis Martínez-Almeida ha destacado que el presupuesto prioriza la inversión en infraestructuras, con 800 millones destinados a obras y rehabilitación urbana. La oposición ha criticado la falta de recursos para vivienda social y servicios sociales, que según sus cálculos recibirán un 5% menos que en el ejercicio anterior."
+      }
+    },
+    "expected": {
+      "profile": "article",
+      "checks": {
+        "headline_words": [8, 15],
+        "summary_sentences": [2, 4],
+        "no_source_suffix": true
+      },
+      "reference": {
+        "headline": "Madrid aprueba un presupuesto de 5.400 millones con foco en infraestructuras",
+        "summary": "El Ayuntamiento de Madrid ha aprobado los presupuestos de 2026 con un gasto de 5.400 millones de euros, un 3,2% más que el ejercicio anterior. El alcalde Martínez-Almeida destacó los 800 millones destinados a infraestructuras, mientras la oposición criticó los recortes en vivienda social y servicios sociales."
+      }
+    }
+  },
+  {
+    "id": "sum-002",
+    "description": "Article profile — long text triggers extractive TextRank reduction (>400 words)",
+    "input": {
+      "profile": "article",
+      "fields": {
+        "title": "España aprueba la reforma del sistema de pensiones | El País",
+        "text": "El Consejo de Ministros ha aprobado este martes la esperada reforma del sistema de pensiones, una medida que llevaba meses negociándose entre el Gobierno, los sindicatos mayoritarios y las organizaciones empresariales. La ministra de Seguridad Social, Elma Saiz, ha presentado el texto ante los medios de comunicación afirmando que la reforma garantiza la sostenibilidad del sistema durante las próximas décadas sin recortar las prestaciones actuales. El acuerdo, alcanzado tras más de seis meses de negociaciones en el marco del diálogo social, incluye una subida de las cotizaciones máximas a lo largo de los próximos diez años, un incremento gradual del período de cómputo para el cálculo de la pensión y la eliminación progresiva de coeficientes reductores para las jubilaciones anticipadas. Los sindicatos UGT y CCOO han valorado positivamente el acuerdo, aunque han señalado que vigilarán su aplicación para asegurar que los compromisos se cumplen en los plazos establecidos. La patronal CEOE, por su parte, ha mostrado una posición más crítica, alertando del impacto de la mayor carga sobre las cotizaciones empresariales en la competitividad de las pymes. Los principales partidos de la oposición han anunciado que estudiarán el texto antes de pronunciarse definitivamente. El PP ha adelantado que pedirá informes técnicos independientes sobre el impacto presupuestario a largo plazo, mientras que Vox ha rechazado de plano la reforma calificándola de insuficiente e ideológica. El Gobierno prevé que la reforma entre en vigor a partir del 1 de enero del año próximo, una vez que sea aprobada por el Congreso de los Diputados. Según las proyecciones del Ministerio, el sistema de pensiones quedaría equilibrado financieramente hasta al menos el año 2050, aunque varios economistas independientes han cuestionado estas estimaciones alegando que no tienen en cuenta posibles escenarios de baja natalidad prolongada o de aumento del desempleo estructural. La reforma también contempla medidas específicas para los trabajadores autónomos, que verán incrementada su base de cotización mínima en un 15% en tres años, y para los empleados con carreras laborales largas que hayan cotizado más de cuarenta años, quienes podrán acceder a una bonificación en su pensión final. El texto incluye además un nuevo mecanismo de equidad intergeneracional que sustituye al factor de sostenibilidad aprobado en 2013 y que nunca llegó a aplicarse. Este mecanismo vincula automáticamente los parámetros del sistema a la evolución de la esperanza de vida y de las finanzas de la Seguridad Social cada cinco años. Entre los aspectos más debatidos durante la negociación figuró el destope de las bases de cotización, que permitirá que los salarios más altos contribuyan en mayor proporción a la financiación del sistema. El Gobierno estima que esta medida aportará entre 3.000 y 4.000 millones de euros adicionales al año a las arcas de la Seguridad Social. Los expertos del Banco de España y de la Autoridad Independiente de Responsabilidad Fiscal han pedido más tiempo para analizar el impacto real de la reforma antes de emitir un dictamen definitivo. La ministra Saiz ha subrayado que la reforma no implica recortes en ninguna prestación vigente y que las pensiones mínimas seguirán incrementándose en línea con el IPC cada año, conforme a lo comprometido en el Pacto de Toledo. El texto será remitido al Congreso de los Diputados en los próximos días para iniciar su tramitación parlamentaria, en un calendario que el Gobierno califica de ambicioso pero viable."
+      }
+    },
+    "expected": {
+      "profile": "article",
+      "checks": {
+        "headline_words": [8, 15],
+        "summary_sentences": [2, 4],
+        "extractive_triggered": true,
+        "no_source_suffix": true
+      },
+      "reference": {
+        "headline": "El Gobierno aprueba la reforma de pensiones con apoyo sindical",
+        "summary": "El Consejo de Ministros ha aprobado la reforma del sistema de pensiones, acordada tras seis meses de diálogo social con sindicatos y patronal. La medida incluye subidas de cotizaciones, ampliación del período de cómputo y un mecanismo de equidad intergeneracional para garantizar la sostenibilidad financiera del sistema hasta 2050."
+      }
+    }
+  },
+  {
+    "id": "sum-003",
+    "description": "Entity description — person with political subtype",
+    "input": {
+      "profile": "entity_desc",
+      "fields": {
+        "name": "Pedro Sánchez",
+        "type": "PERSONA",
+        "subtype": "político",
+        "evidence": [
+          "Pedro Sánchez, secretario general del PSOE, fue investido presidente del Gobierno en enero de 2020 tras ganar las elecciones generales de noviembre de 2019.",
+          "Sánchez anunció en 2024 una bajada del IRPF para rentas bajas y medias como parte del acuerdo de gobierno con Sumar.",
+          "El presidente convocó una sesión extraordinaria del Consejo de Ministros para aprobar el decreto de medidas urgentes ante la crisis energética."
+        ]
+      }
+    },
+    "expected": {
+      "profile": "entity_desc",
+      "checks": {
+        "description_non_empty": true,
+        "max_sentences": 4
+      },
+      "reference": {
+        "description": "Pedro Sánchez es el presidente del Gobierno de España y secretario general del PSOE, cargo al que accedió tras ganar las elecciones generales de noviembre de 2019. Durante su mandato ha impulsado medidas como la bajada del IRPF para rentas bajas y medias y la gestión de la crisis energética mediante decretos de urgencia."
+      }
+    }
+  },
+  {
+    "id": "sum-004",
+    "description": "Entity description — organisation, no subtype",
+    "input": {
+      "profile": "entity_desc",
+      "fields": {
+        "name": "Banco Santander",
+        "type": "ORGANIZACIÓN",
+        "evidence": [
+          "Banco Santander, presidido por Ana Botín, ha presentado unos beneficios récord de 11.076 millones de euros en 2024, un 14% más que el año anterior.",
+          "La entidad opera en diez mercados principales en Europa, América del Norte y América Latina con más de 168 millones de clientes.",
+          "El banco anunció un plan de recompra de acciones por valor de 1.500 millones de euros tras presentar sus resultados anuales."
+        ]
+      }
+    },
+    "expected": {
+      "profile": "entity_desc",
+      "checks": {
+        "description_non_empty": true,
+        "max_sentences": 4
+      },
+      "reference": {
+        "description": "Banco Santander es una entidad financiera española presidida por Ana Botín que opera en diez mercados en Europa, América del Norte y América Latina con más de 168 millones de clientes. En 2024 obtuvo beneficios récord de 11.076 millones de euros, un 14% más que el año anterior, y anunció un plan de recompra de acciones por 1.500 millones de euros."
+      }
+    }
+  },
+  {
+    "id": "sum-005",
+    "description": "Relation description — acquisition with numeric attribute",
+    "input": {
+      "profile": "relation_desc",
+      "fields": {
+        "head": "Telefónica",
+        "tail": "ElevenPaths",
+        "type": "ADQUIRIÓ",
+        "subtype": null,
+        "attributes": "importe_millones: 200",
+        "evidence": [
+          "Telefónica ha completado la adquisición de ElevenPaths por un importe de 200 millones de euros.",
+          "La operación refuerza la posición de Telefónica en el mercado de ciberseguridad empresarial en España y Latinoamérica."
+        ]
+      }
+    },
+    "expected": {
+      "profile": "relation_desc",
+      "checks": {
+        "description_non_empty": true,
+        "max_sentences": 4
+      },
+      "reference": {
+        "description": "Telefónica adquirió ElevenPaths por un importe de 200 millones de euros. La operación refuerza la posición de Telefónica en el mercado de ciberseguridad empresarial en España y Latinoamérica."
+      }
+    }
+  },
+  {
+    "id": "sum-006",
+    "description": "Relation description — employment relation, no attributes",
+    "input": {
+      "profile": "relation_desc",
+      "fields": {
+        "head": "Ana Botín",
+        "tail": "Banco Santander",
+        "type": "DIRIGE",
+        "subtype": null,
+        "attributes": "",
+        "evidence": [
+          "Ana Botín preside el Banco Santander desde septiembre de 2014, cuando tomó el relevo de su padre Emilio Botín.",
+          "Bajo su mandato el banco ha duplicado su beneficio neto y reforzado su presencia en mercados digitales."
+        ]
+      }
+    },
+    "expected": {
+      "profile": "relation_desc",
+      "checks": {
+        "description_non_empty": true,
+        "max_sentences": 4
+      },
+      "reference": {
+        "description": "Ana Botín preside el Banco Santander desde septiembre de 2014, cuando sucedió a su padre Emilio Botín. Bajo su liderazgo el banco ha duplicado su beneficio neto y reforzado su presencia en mercados digitales."
+      }
+    }
+  },
+  {
+    "id": "sum-007",
+    "description": "Aggregate — merge two partial descriptions with updated evidence",
+    "input": {
+      "profile": "aggregate",
+      "fields": {
+        "name": "Banco Santander",
+        "type": "ORGANIZACIÓN",
+        "descriptions": [
+          "Banco Santander es una entidad financiera española con sede en Santander, Cantabria.",
+          "El Santander es el mayor banco de la eurozona por capitalización bursátil y opera en diez países."
+        ],
+        "evidence": [
+          "Banco Santander ha obtenido un beneficio neto de 11.076 millones de euros en 2024.",
+          "La entidad tiene más de 168 millones de clientes en Europa y América."
+        ]
+      }
+    },
+    "expected": {
+      "profile": "aggregate",
+      "checks": {
+        "description_non_empty": true,
+        "max_sentences": 5
+      },
+      "reference": {
+        "description": "Banco Santander es una entidad financiera española con sede en Santander, Cantabria, y el mayor banco de la eurozona por capitalización bursátil, con presencia en diez países y más de 168 millones de clientes en Europa y América. En 2024 obtuvo un beneficio neto récord de 11.076 millones de euros."
+      }
+    }
+  }
+]

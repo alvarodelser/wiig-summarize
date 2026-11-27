@@ -1,0 +1,141 @@
+[
+  {
+    "id": "entity-desc-001",
+    "description": "Politician with 3 evidence items — no extractive trigger",
+    "input": {
+      "profile": "entity_desc",
+      "fields": {
+        "name": "Ana Ruiz Morales",
+        "type": "PERSONA",
+        "evidence": [
+          "La concejala Ana Ruiz Morales presentó en el pleno el plan municipal de carriles bici para 2025.",
+          "Ana Ruiz Morales firmó el convenio con asociaciones ciclistas para financiar la instalación de 200 aparcamientos en centros educativos.",
+          "La edil de Movilidad, Ana Ruiz Morales, defendió la ampliación de la zona de bajas emisiones en el centro histórico."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": false,
+        "description_non_empty": true,
+        "contains": ["Ana Ruiz"]
+      },
+      "reference": "Ana Ruiz Morales es concejala de Movilidad que ha impulsado el plan de carriles bici 2025 y la instalación de aparcamientos para bicicletas en centros educativos, además de defender la ampliación de la zona de bajas emisiones en el centro histórico."
+    }
+  },
+  {
+    "id": "entity-desc-002",
+    "description": "NGO with 3 evidence items — no extractive trigger",
+    "input": {
+      "profile": "entity_desc",
+      "fields": {
+        "name": "Plataforma Ciclistas Urbanos Madrid",
+        "type": "ORGANIZACIÓN",
+        "evidence": [
+          "La Plataforma Ciclistas Urbanos Madrid celebró su asamblea anual con más de 300 socios y aprobó el plan de acción para reclamar mejoras en el carril bici del paseo de la Castellana.",
+          "La asociación presentó ante el Ayuntamiento un informe con 1.200 firmas en contra de la eliminación del carril bici protegido de la calle Serrano.",
+          "Representantes de la Plataforma Ciclistas Urbanos Madrid participaron en la mesa de movilidad convocada por la Concejalía de Sostenibilidad para debatir el futuro del anillo verde ciclista."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": false,
+        "description_non_empty": true,
+        "contains": ["Plataforma"]
+      },
+      "reference": "La Plataforma Ciclistas Urbanos Madrid es una asociación ciclista con más de 300 socios que lleva a cabo acciones de presión ciudadana para defender la infraestructura ciclista y participa en los órganos de consulta del Ayuntamiento."
+    }
+  },
+  {
+    "id": "entity-desc-003",
+    "description": "Infrastructure project with subtype — no extractive trigger",
+    "input": {
+      "profile": "entity_desc",
+      "fields": {
+        "name": "Anillo Verde Ciclista Sur",
+        "type": "PROYECTO",
+        "subtype": "infraestructura ciclista",
+        "evidence": [
+          "El Anillo Verde Ciclista Sur conectará los barrios del sur de la ciudad con el parque forestal de Valdebebas mediante 18 kilómetros de carril bici segregado, con una inversión de 6,3 millones de euros.",
+          "Las obras del Anillo Verde Ciclista Sur comenzarán en el tramo de la calle Oporto y se prolongarán durante 14 meses, afectando a tres distritos municipales.",
+          "El proyecto prevé la instalación de 40 puntos de aparcamiento de bicicletas y cuatro estaciones de reparación autoservicio a lo largo del recorrido.",
+          "La licitación del Anillo Verde Ciclista Sur fue aprobada por unanimidad en el pleno municipal, con un presupuesto base de contrata de 5,8 millones de euros."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": false,
+        "description_non_empty": true,
+        "contains": ["18 kilómetros"]
+      },
+      "reference": "El Anillo Verde Ciclista Sur es un proyecto de infraestructura ciclista que construirá 18 km de carril bici segregado para conectar barrios del sur de la ciudad con el parque de Valdebebas, con una inversión de 6,3 millones de euros y una duración de obra de 14 meses."
+    }
+  },
+  {
+    "id": "entity-desc-004",
+    "description": "Politician with 12 evidence items — triggers extractive reduction (>400 words)",
+    "input": {
+      "profile": "entity_desc",
+      "fields": {
+        "name": "Carlos Díez Moreno",
+        "type": "PERSONA",
+        "evidence": [
+          "El concejal Carlos Díez Moreno presentó ante el pleno municipal el nuevo plan de carriles bici para el centro histórico, destacando que la inversión prevista asciende a cuatro millones de euros y que las obras comenzarán a principios del año siguiente.",
+          "Durante la inauguración del carril bici de la calle Alcalá, Carlos Díez Moreno afirmó que el proyecto había sido diseñado en colaboración con asociaciones ciclistas locales y que reducirá en un 30% el tráfico rodado en esa vía.",
+          "El concejal de Movilidad, Carlos Díez Moreno, compareció en rueda de prensa para responder a las críticas de los comerciantes afectados por la supresión de plazas de aparcamiento derivada de la nueva infraestructura ciclista en el barrio de Chamberí.",
+          "Carlos Díez Moreno anunció la licitación del servicio de mantenimiento de la red de aparcamientos de bicicletas municipales, con un contrato valorado en 1,2 millones de euros y una duración de dos años prorrogables.",
+          "En declaraciones a los medios, Carlos Díez Moreno defendió la decisión de ampliar las zonas de bajas emisiones argumentando que los estudios de calidad del aire muestran una reducción del 18% en los niveles de NO₂ en las zonas ya implantadas.",
+          "El concejal de Movilidad Sostenible, Carlos Díez Moreno, se reunió con representantes de empresas de patinetes eléctricos para negociar las condiciones de renovación de las licencias de operación en la ciudad durante el próximo ejercicio.",
+          "Carlos Díez Moreno presentó el informe anual de accidentalidad ciclista ante la Comisión de Movilidad, señalando que el número de incidentes graves disminuyó un 22% gracias a la instalación de señales de advertencia en intersecciones conflictivas.",
+          "El concejal compareció ante la Comisión de Movilidad del Ayuntamiento para explicar el retraso en la ejecución del tramo norte del anillo ciclista metropolitano, atribuido a la aparición de restos arqueológicos durante los trabajos de excavación.",
+          "Carlos Díez Moreno anunció la puesta en marcha de un programa piloto de aparcamientos de bicicletas vigilados en las principales estaciones de metro y cercanías, con capacidad para 500 plazas en una primera fase.",
+          "El concejal firmó un convenio con la Consejería de Educación para financiar la instalación de bicicleteros en 45 centros escolares del municipio, en el marco del programa de movilidad escolar activa.",
+          "Carlos Díez Moreno se opuso públicamente a la propuesta de la oposición de revertir los carriles bici ya construidos, calificando la medida de un error histórico que condenaría a la ciudad a décadas de contaminación y congestión de tráfico.",
+          "El concejal presentó la nueva aplicación móvil de movilidad sostenible del ayuntamiento, que permite planificar rutas ciclistas, consultar el estado de aparcamientos y reportar incidencias en la vía pública directamente a los servicios municipales."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": true,
+        "description_non_empty": true,
+        "contains": ["Carlos Díez", "movilidad"]
+      },
+      "reference": "Carlos Díez Moreno es el concejal de Movilidad Sostenible responsable del plan de carriles bici del centro histórico y la ampliación de zonas de bajas emisiones. Ha gestionado la licitación de aparcamientos ciclistas, firmado convenios de movilidad escolar y presentado informes de accidentalidad que documentan una reducción del 22% en incidentes graves."
+    }
+  },
+  {
+    "id": "entity-desc-005",
+    "description": "Federation with 11 evidence items — triggers extractive reduction (>400 words)",
+    "input": {
+      "profile": "entity_desc",
+      "fields": {
+        "name": "Federación Española de Ciclistas Urbanos",
+        "type": "ORGANIZACIÓN",
+        "evidence": [
+          "La Federación Española de Ciclistas Urbanos reunió a más de 80 asociaciones de todo el país en su congreso anual celebrado en Zaragoza, donde se aprobó la hoja de ruta para exigir al Gobierno central la aprobación de una Ley de Movilidad Sostenible antes de 2026.",
+          "La organización publicó el índice anual de ciudades ciclistas, en el que Madrid descendió tres posiciones hasta el puesto 14 por el retraso en la ejecución de varios tramos del anillo ciclista metropolitano.",
+          "La Federación Española de Ciclistas Urbanos envió un escrito al Ministerio de Transportes solicitando la inclusión de 500 kilómetros de vías ciclistas interurbanas en el plan de inversión en infraestructuras para el período 2024-2028.",
+          "La entidad presentó ante el Congreso de los Diputados un informe en el que documenta 1.347 incidentes de puertas de vehículos abiertas contra ciclistas registrados durante el año anterior, reclamando la aprobación de una regulación específica.",
+          "La Federación colaboró con el Observatorio de la Movilidad para elaborar el primer mapa nacional de infraestructuras ciclistas, que constata la existencia de 12.000 kilómetros de carriles bici con distintos niveles de segregación.",
+          "La organización convocó una manifestación nacional bajo el lema 'La bici es transporte' que concentró a más de 40.000 personas en quince ciudades españolas para reclamar mayor presupuesto destinado a infraestructuras ciclistas urbanas.",
+          "La Federación Española de Ciclistas Urbanos rubricó un acuerdo de colaboración con la plataforma europea Cycling Industries Europe para compartir datos de accidentalidad e impulsar estándares comunes de diseño de carril bici protegido.",
+          "La entidad reclamó la revisión de la normativa del Reglamento General de Circulación para elevar la distancia mínima de adelantamiento a ciclistas de 1,5 a 2 metros, en línea con la legislación ya vigente en varios países europeos.",
+          "La Federación emitió un comunicado criticando la decisión del Ayuntamiento de Valencia de suprimir el carril bici de la avenida del Puerto, calificándola de paso atrás en las políticas de movilidad sostenible.",
+          "La organización presentó los resultados de su encuesta anual a 5.000 ciclistas urbanos, que revela que el 67% considera que la infraestructura existente es insuficiente y que el 43% ha sufrido al menos un incidente de tráfico en el último año.",
+          "La Federación Española de Ciclistas Urbanos anunció la creación de un registro nacional de robos de bicicletas integrado con bases de datos de policías locales de 35 municipios, con el objetivo de mejorar la tasa de recuperación de vehículos."
+        ]
+      }
+    },
+    "expected": {
+      "checks": {
+        "extractive_triggered": true,
+        "description_non_empty": true,
+        "contains": ["Federación", "ciclistas"]
+      },
+      "reference": "La Federación Española de Ciclistas Urbanos es una organización nacional que agrupa a más de 80 asociaciones y publica índices anuales de ciudades ciclistas. Presiona al Gobierno central para aprobar legislación de movilidad sostenible, elabora informes de accidentalidad y convoca movilizaciones nacionales en defensa de las infraestructuras ciclistas."
+    }
+  }
+]
